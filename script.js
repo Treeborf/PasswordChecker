@@ -59,6 +59,7 @@ function evaluatePassword() {
   if (hasLowercase) score += 15;
   if (hasNumber) score += 15;
   if (hasSpecial) score += 25;
+  // if (hasAsterik( score += 5;
   
   // Calculate strength category and update UI
   updateStrengthUI(score);
