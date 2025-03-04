@@ -108,7 +108,7 @@ function generateSuggestions(password, hasLength, hasUppercase, hasLowercase, ha
   }
 
  if (!hasAsterik){
-    suggestions.push("Make sure your password has a *"
+    suggestions.push("Make sure your password has a *");
  }
   
   if (!hasUppercase) {
