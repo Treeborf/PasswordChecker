@@ -35,6 +35,7 @@ function evaluatePassword() {
   const hasLowercase = /[a-z]/.test(password);
   const hasNumber = /[0-9]/.test(password);
   const hasSpecial = /[^A-Za-z0-9]/.test(password);
+  const hasAsterik = /[*]/.test(password);
   
   // Update requirement checks
   lengthCheck.textContent = hasLength ? '✅' : '❌';
@@ -105,6 +106,10 @@ function generateSuggestions(password, hasLength, hasUppercase, hasLowercase, ha
   if (!hasLength) {
     suggestions.push('Make your password at least 8 characters long.');
   }
+
+ if (!hasAsterik){
+    suggestions.push("Make sure your password has a *"
+ }
   
   if (!hasUppercase) {
     suggestions.push('Add uppercase letters (A-Z).');
