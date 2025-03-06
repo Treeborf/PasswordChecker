@@ -68,6 +68,36 @@ function evaluatePassword() {
   generateSuggestions(password, hasLength, hasUppercase, hasLowercase, hasNumber, hasSpecial);
 }
 
+function updateStrengthUI(score) {
+  // Update strength bar width
+  strengthBar.style.width = `${score}%`;
+  
+  // Update strength class and label
+  strengthBar.className = 'strength-bar';
+  
+  let strengthText = '';
+  if (score === 0) {
+    strengthText = 'Strength: Empty';
+  } else if (score < 25) {
+    strengthBar.classList.add('very-weak');
+    strengthText = 'Strength: Very Weak';
+  } else if (score < 50) {
+    strengthBar.classList.add('weak');
+    strengthText = 'Strength: Weak';
+  } else if (score < 70) {
+    strengthBar.classList.add('medium');
+    strengthText = 'Strength: Medium';
+  } else if (score < 90) {
+    strengthBar.classList.add('strong');
+    strengthText = 'Strength: Strong';
+  } else {
+    strengthBar.classList.add('very-strong');
+    strengthText = 'Strength: Very Strong';
+  }
+  
+  strengthLabel.textContent = strengthText;
+}
+
 function generateSuggestions(password, hasLength, hasUppercase, hasLowercase, hasNumber, hasSpecial) {
   if (password.length === 0) {
     suggestionsBox.textContent = '';
